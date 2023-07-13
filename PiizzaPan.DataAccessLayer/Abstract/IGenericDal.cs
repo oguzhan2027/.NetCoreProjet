@@ -12,6 +12,6 @@ namespace PiizzaPan.DataAccessLayer.Abstract
         void Update(T t);
         void Delete(T t);
         List<T> GetList();
-        T GetBtId(int id);
+        T GetById(int id);
     }
 }
