@@ -1,0 +1,15 @@
+﻿@model Piizzapan.EntityLayer.Concrete.Product
+@{
+    ViewData["Title"] = "AddProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>AddProduct</h1>
+<form method="post">
+    <label>Kategori adi</label>
+    <input asp-for="ProductName" class="form-control" style="background-color:aqua" />
+    <br />
+    <button class="btn btn-info">kaydet</button>
+</form>
+
+
