@@ -4,6 +4,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PiizzaPan.Bussiness.Layer.Abstract;
+using PiizzaPan.Bussiness.Layer.Concrete;
+using PiizzaPan.DataAccessLayer.Abstract;
+using PiizzaPan.DataAccessLayer.Concrete;
+using PiizzaPan.DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +28,9 @@ namespace PiizzaPan.Presentation.Layer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<Context>();
+            services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<ICategoryDal, EfCategoryDal>();
             services.AddControllersWithViews();
         }
 

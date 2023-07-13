@@ -1,8 +1,31 @@
-﻿
+﻿@model List<Piizzapan.EntityLayer.Concrete.Category>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Kategori Listesi</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Kategori Adı</th>
+        <th>kategori Ürünleri</th>
+        <th>Sitede Gör</th>
+        <th>sil</th>
+        <th>güncelle</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryID</td>
+            <td>@item.CategoryName</td>
+            <td><a href="#" class="btn btn-outline-info">kategori ürünleri</a></td>
+            <td><a href="#" class="btn btn-outline-warning">sitede gör</a></td>
+            <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-outline-danger">sil</a></td>
+            <td><a href="#" class="btn btn-outline-succes">Güncelle</a></td>
+
+        </tr>
+    }
+</table>
 

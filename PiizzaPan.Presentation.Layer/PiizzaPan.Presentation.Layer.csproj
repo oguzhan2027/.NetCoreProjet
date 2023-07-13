@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PiizzaPan.Bussiness.Layer\PiizzaPan.Bussiness.Layer.csproj" />
     <ProjectReference Include="..\PiizzaPan.DataAccessLayer\PiizzaPan.DataAccessLayer.csproj" />
     <ProjectReference Include="..\Piizzapan.EntityLayer\Piizzapan.EntityLayer.csproj" />
   </ItemGroup>

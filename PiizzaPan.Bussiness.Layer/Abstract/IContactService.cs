@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PiizzaPan.Bussiness.Layer.Abstract
 {
-    internal interface IContactService:IGenericService<Contact>
+    public interface IContactService:IGenericService<Contact>
     {
     }
 }

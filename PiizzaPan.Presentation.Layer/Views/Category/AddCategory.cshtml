@@ -1,0 +1,14 @@
+﻿@model Piizzapan.EntityLayer.Concrete.Category
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>AddCategory</h1>
+<form method="post">
+    <label>Kategori adi</label>
+    <input asp-for="CategoryName" class="form-control" style="background-color:aqua" />
+    <br />
+    <button class="btn btn-info">kaydet</button>
+</form>
+
