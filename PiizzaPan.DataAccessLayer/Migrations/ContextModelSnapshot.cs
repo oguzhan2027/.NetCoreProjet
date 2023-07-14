@@ -61,6 +61,30 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("Piizzapan.EntityLayer.Concrete.Discount", b =>
+                {
+                    b.Property<int>("DiscountID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DiscountCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DiscountCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("EndingDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("DiscountID");
+
+                    b.ToTable("Discounts");
+                });
+
             modelBuilder.Entity("Piizzapan.EntityLayer.Concrete.Product", b =>
                 {
                     b.Property<int>("ProductID")
@@ -68,7 +92,7 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CategoryID")
+                    b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -122,9 +146,13 @@ namespace PiizzaPan.DataAccessLayer.Migrations
 
             modelBuilder.Entity("Piizzapan.EntityLayer.Concrete.Product", b =>
                 {
-                    b.HasOne("Piizzapan.EntityLayer.Concrete.Category", null)
+                    b.HasOne("Piizzapan.EntityLayer.Concrete.Category", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryID");
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Piizzapan.EntityLayer.Concrete.Testimonial", b =>

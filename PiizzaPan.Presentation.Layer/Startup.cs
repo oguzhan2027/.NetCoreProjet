@@ -9,6 +9,9 @@ using PiizzaPan.Bussiness.Layer.Concrete;
 using PiizzaPan.DataAccessLayer.Abstract;
 using PiizzaPan.DataAccessLayer.Concrete;
 using PiizzaPan.DataAccessLayer.EntityFramework;
+using Pizzapan.DataAccessLayer.Abstract;
+using Pizzapan.DataAccessLayer.EntityFramework;
+using PizzaPan.BusinessLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +40,9 @@ namespace PiizzaPan.Presentation.Layer
 
             services.AddScoped<IContactService, ContactManager>();
             services.AddScoped<IContactDal, EfContactDal>();
+
+            services.AddScoped<IDiscountService, DiscountManager>();
+            services.AddScoped<IDiscountDal, EfDiscountDal>();
 
             services.AddControllersWithViews();
         }
