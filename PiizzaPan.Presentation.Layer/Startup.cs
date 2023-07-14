@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Piizzapan.EntityLayer.Concrete;
 using PiizzaPan.Bussiness.Layer.Abstract;
 using PiizzaPan.Bussiness.Layer.Concrete;
 using PiizzaPan.DataAccessLayer.Abstract;
@@ -43,6 +44,10 @@ namespace PiizzaPan.Presentation.Layer
 
             services.AddScoped<IDiscountService, DiscountManager>();
             services.AddScoped<IDiscountDal, EfDiscountDal>();
+
+           
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+            services.AddControllersWithViews();
 
             services.AddControllersWithViews();
         }
