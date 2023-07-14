@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace PiizzaPan.Bussiness.Layer.Abstract
 {
-    public interface IProductService:IGenericService<Product>
+    public interface IProductService : IGenericService<Product>
     {
+        void TDelete(object value);
+        object TGetByID(int id);
     }
 }

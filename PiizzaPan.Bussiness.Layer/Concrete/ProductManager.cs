@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PiizzaPan.Bussiness.Layer.Concrete
 {
-    internal class ProductManager : IProductService
+    public class ProductManager : IProductService
     {
         private readonly IProductDal _productDal;
         public ProductManager(IProductDal productDal)
@@ -23,9 +23,19 @@ namespace PiizzaPan.Bussiness.Layer.Concrete
             _productDal.Delete(t);
         }
 
+        public void TDelete(object value)
+        {
+            throw new NotImplementedException();
+        }
+
         public Product TGetById(int id)
         {
             return _productDal.GetById(id);
+        }
+
+        public object TGetByID(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Product> TGetList()

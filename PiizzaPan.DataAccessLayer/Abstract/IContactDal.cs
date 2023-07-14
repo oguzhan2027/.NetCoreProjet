@@ -9,5 +9,6 @@ namespace PiizzaPan.DataAccessLayer.Abstract
 {
     public interface IContactDal : IGenericDal<Contact>
     {
+        List<Contact> GetContactBySubjectWithTesekkur();
     }
 }

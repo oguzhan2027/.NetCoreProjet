@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PiizzaPan.Bussiness.Layer.Abstract;
 using Piizzapan.EntityLayer.Concrete;
+using PiizzaPan.Bussiness.Layer.Concrete;
 
-namespace PiizzaPan.Presentation.Layer.Controllers
+namespace Pizzapan.PresentationLayer.Controllers
 {
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
-
+        
         public ProductController(IProductService productService)
         {
             _productService = productService;
         }
-
         public IActionResult Index()
         {
             var values = _productService.TGetList();
@@ -31,14 +31,14 @@ namespace PiizzaPan.Presentation.Layer.Controllers
         }
         public IActionResult DeleteProduct(int id)
         {
-            var value = _productService.TGetById(id);
+            var value = _productService.TGetByID(id);
             _productService.TDelete(value);
             return RedirectToAction("Index");
         }
         [HttpGet]
         public IActionResult UpdateProduct(int id)
         {
-            var value = _productService.TGetById(id);
+            var value = _productService.TGetByID(id);
             return View(value);
         }
         [HttpPost]
