@@ -31,7 +31,16 @@ namespace Pizzapan.PresentationLayer.Controllers
         [HttpPost]
         public IActionResult CreateCode(Discount discount)
         {
+            discount.CreatedDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            discount.EndingDate = Convert.ToDateTime(DateTime.Now.AddDays(3));
+            _discountService.TInsert(discount);
+            return RedirectToAction("Index");
             return View();
+        }
+        public IActionResult DiscountCodeList()
+        {
+            var values = _discountService.TGetList();
+            return View(values);
         }
     }
 }
