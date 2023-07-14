@@ -17,6 +17,12 @@ namespace PiizzaPan.Bussiness.Layer.Concrete
         {
             _contactDal = contactDal;
         }
+
+        public List<Contact> TContactBySubjectWithTesekkur()
+        {
+            return _contactDal.GetContactBySubjectWithTesekkur();
+        }
+
         public void TDelete(Contact t)
         {
             _contactDal.Delete(t);

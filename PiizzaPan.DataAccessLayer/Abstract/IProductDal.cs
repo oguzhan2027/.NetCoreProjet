@@ -9,6 +9,7 @@ namespace PiizzaPan.DataAccessLayer.Abstract
 {
     public interface IProductDal : IGenericDal<Product>
     {
-
+        public List<Product> GetProductsWithCategory();
+        
     }
 }

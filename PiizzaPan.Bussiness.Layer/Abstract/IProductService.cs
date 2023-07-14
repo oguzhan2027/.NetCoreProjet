@@ -11,5 +11,12 @@ namespace PiizzaPan.Bussiness.Layer.Abstract
     {
         void TDelete(object value);
         object TGetByID(int id);
+        object TGetProductsWithCategory();
+
+        public interface IProductService : IGenericService<Product>
+        {
+            public List<Product> TGetProductsWithCategory();
+        }
+
     }
 }

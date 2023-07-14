@@ -43,6 +43,11 @@ namespace PiizzaPan.Bussiness.Layer.Concrete
             return _productDal.GetList();
         }
 
+        public object TGetProductsWithCategory()
+        {
+            return _productDal.GetProductsWithCategory();
+        }
+
         public void TInsert(Product t)
         {
             _productDal.Insert(t);
@@ -52,5 +57,7 @@ namespace PiizzaPan.Bussiness.Layer.Concrete
         {
             _productDal.Update(t);
         }
+
+        
     }
 }

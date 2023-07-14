@@ -9,5 +9,6 @@ namespace PiizzaPan.Bussiness.Layer.Abstract
 {
     public interface IContactService:IGenericService<Contact>
     {
+        List<Contact> TContactBySubjectWithTesekkur();
     }
 }
