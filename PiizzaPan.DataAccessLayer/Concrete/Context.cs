@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Piizzapan.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace PiizzaPan.DataAccessLayer.Concrete
 {
-    public class Context:DbContext
+    public class Context : IdentityDbContext<AppUser, AppRole, int>
 
     {
+       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source =DESKTOP-4UM3KTM;initial catalog=CasgemDbPizzaPan;integrated security=true");
