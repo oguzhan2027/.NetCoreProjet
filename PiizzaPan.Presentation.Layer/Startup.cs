@@ -70,6 +70,7 @@ namespace PiizzaPan.Presentation.Layer
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
