@@ -46,7 +46,11 @@ namespace PiizzaPan.Presentation.Layer
             services.AddScoped<IDiscountService, DiscountManager>();
             services.AddScoped<IDiscountDal, EfDiscountDal>();
 
-           
+            
+            services.AddScoped<IProductImageService, ProductImageManager>();
+            services.AddScoped<IProductImageDal, EfProductImageDal>();
+
+
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
             services.AddControllersWithViews();
 

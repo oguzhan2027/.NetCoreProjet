@@ -27,4 +27,8 @@
     <ProjectReference Include="..\Piizzapan.EntityLayer\Piizzapan.EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>

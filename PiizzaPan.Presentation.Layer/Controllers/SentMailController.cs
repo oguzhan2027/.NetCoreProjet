@@ -17,7 +17,7 @@ namespace PiizzaPan.Presentation.Layer.Controllers
         public IActionResult Index(MailRequest mailRequest)
         {
             MimeMessage mimeMessage = new MimeMessage();
-            MailboxAddress mailboxAddressFrom = new MailboxAddress("Admin", "oguzhancelik2027@gmail.com");
+            MailboxAddress mailboxAddressFrom = new MailboxAddress("Admin", "mail adresi");
             mimeMessage.From.Add(mailboxAddressFrom);
 
             MailboxAddress mailboxAddressTo = new MailboxAddress("User", mailRequest.ReceiverMail);
@@ -31,7 +31,7 @@ namespace PiizzaPan.Presentation.Layer.Controllers
 
             SmtpClient smtpClient= new SmtpClient();
             smtpClient.Connect("smtp.gmail.com", 587, false);
-            smtpClient.Authenticate("oguzhancelik2027@gmail.com", "mbqrqsvaizrzjjct");
+            smtpClient.Authenticate("mail adresi", "token");
             smtpClient.Send(mimeMessage);
             smtpClient.Disconnect(true);
             return View();
