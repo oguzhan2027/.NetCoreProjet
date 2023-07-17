@@ -10,6 +10,7 @@ using PiizzaPan.Bussiness.Layer.Concrete;
 using PiizzaPan.DataAccessLayer.Abstract;
 using PiizzaPan.DataAccessLayer.Concrete;
 using PiizzaPan.DataAccessLayer.EntityFramework;
+using PiizzaPan.Presentation.Layer.Models;
 using Pizzapan.DataAccessLayer.Abstract;
 using Pizzapan.DataAccessLayer.EntityFramework;
 using PizzaPan.BusinessLayer.Concrete;
@@ -46,7 +47,7 @@ namespace PiizzaPan.Presentation.Layer
             services.AddScoped<IDiscountDal, EfDiscountDal>();
 
            
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
             services.AddControllersWithViews();
 
             services.AddControllersWithViews();

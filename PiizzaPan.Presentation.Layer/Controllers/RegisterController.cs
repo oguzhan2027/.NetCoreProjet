@@ -21,26 +21,40 @@ namespace PiizzaPan.Presentation.Layer.Controllers
             return View();
         }
         [HttpPost]
-        public async Task <IActionResult> Index(RegisterViewModel model)
+        public async Task<IActionResult> Index(RegisterViewModel model)
         {
-           
-            if (ModelState.IsValid)
-            {
-                AppUser appUser = new AppUser()
-                {
-                    Name = model.Name,
-                    Surname = model.SurName,
-                    Email = model.Email,
-                    UserName = model.Username
-                };
 
-                await _userManager.CreateAsync(appUser, model.Password);
-                return RedirectToAction("Index", "Login");
+
+            AppUser appUser = new AppUser()
+            {
+                Name = model.Name,
+                Surname = model.SurName,
+                Email = model.Email,
+                UserName = model.Username
+            };
+            if (model.Password == model.ConfirmPassword )
+            {
+               var result =  await _userManager.CreateAsync(appUser, model.Password);
+                if(result.Succeeded) {
+                    return RedirectToAction("Index", "Login");
+                }
+                else
+                {
+                    foreach(var item in result.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                    }
+                }
+                
             }
             else
             {
-                return View();
+                ModelState.AddModelError("", "şifreler eşleşmiyor");
             }
+            return View();
+            
+
+
         }
     }
 }
