@@ -10,8 +10,8 @@ using PiizzaPan.DataAccessLayer.Concrete;
 namespace PiizzaPan.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230714120339_mid_add_identity3")]
-    partial class mid_add_identity3
+    [Migration("20230721080758_mig_Data")]
+    partial class mig_Data
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -168,6 +168,9 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ConfirmCode")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -293,6 +296,39 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                     b.ToTable("Discounts");
                 });
 
+            modelBuilder.Entity("Piizzapan.EntityLayer.Concrete.OurTeam", b =>
+                {
+                    b.Property<int>("OurTeamID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Facebook")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SurName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Twitter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("OurTeamID");
+
+                    b.ToTable("OurTeams");
+                });
+
             modelBuilder.Entity("Piizzapan.EntityLayer.Concrete.Product", b =>
                 {
                     b.Property<int>("ProductID")
@@ -320,6 +356,21 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                     b.HasIndex("CategoryID");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Piizzapan.EntityLayer.Concrete.ProductImage", b =>
+                {
+                    b.Property<int>("ProductImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProductImageId");
+
+                    b.ToTable("ProductImages");
                 });
 
             modelBuilder.Entity("Piizzapan.EntityLayer.Concrete.Testimonial", b =>
