@@ -10,8 +10,8 @@ using PiizzaPan.DataAccessLayer.Concrete;
 namespace PiizzaPan.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230721080758_mig_Data")]
-    partial class mig_Data
+    [Migration("20230721123359_mig_menu")]
+    partial class mig_menu
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -296,6 +296,27 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                     b.ToTable("Discounts");
                 });
 
+            modelBuilder.Entity("Piizzapan.EntityLayer.Concrete.Menu", b =>
+                {
+                    b.Property<int>("MenuID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("MenuDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MenuName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MenuPrice")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MenuID");
+
+                    b.ToTable("Menus");
+                });
+
             modelBuilder.Entity("Piizzapan.EntityLayer.Concrete.OurTeam", b =>
                 {
                     b.Property<int>("OurTeamID")
@@ -380,9 +401,6 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CategoryID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
@@ -397,8 +415,6 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TestimonialID");
-
-                    b.HasIndex("CategoryID");
 
                     b.ToTable("Testimonials");
                 });
@@ -461,15 +477,6 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Piizzapan.EntityLayer.Concrete.Testimonial", b =>
-                {
-                    b.HasOne("Piizzapan.EntityLayer.Concrete.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryID");
 
                     b.Navigation("Category");
                 });

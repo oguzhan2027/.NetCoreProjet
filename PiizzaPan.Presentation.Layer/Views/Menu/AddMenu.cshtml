@@ -1,0 +1,25 @@
+﻿@model Piizzapan.EntityLayer.Concrete.Menu
+@{
+    ViewData["Title"] = "AddMenu";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Menu Ekleme Sayfası</h1>
+
+
+<form method="post">
+
+    <label>Menu Adı</label>
+    <input asp-for="MenuName" class="form-control" style="background-color:#b1b3b1" />
+    <br />
+    <label>Menu Fiyatı</label>
+    <input asp-for="MenuPrice" class="form-control" style="background-color:#b1b3b1" />
+    <br />
+    <label>Menu Açıklaması</label>
+    <input asp-for="MenuDescription" class="form-control" style="background-color:#b1b3b1" />
+    <br />
+    
+    
+    <button class="btn btn-info">Kaydet</button>
+</form>
+

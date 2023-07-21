@@ -45,7 +45,7 @@ namespace PiizzaPan.Presentation.Layer.Controllers
                 if(result.Succeeded) {
                     #region
                     MimeMessage mimeMessage = new MimeMessage();
-                    MailboxAddress mailboxAddressFrom = new MailboxAddress("Admin", "mail adresi");
+                    MailboxAddress mailboxAddressFrom = new MailboxAddress("Admin", "mailadresi");
                     mimeMessage.From.Add(mailboxAddressFrom);
 
                     MailboxAddress mailboxAddressTo = new MailboxAddress("User", model.Email);
@@ -59,7 +59,7 @@ namespace PiizzaPan.Presentation.Layer.Controllers
 
                     SmtpClient smtpClient = new SmtpClient();
                     smtpClient.Connect("smtp.gmail.com", 587, false);
-                    smtpClient.Authenticate("mail adresi", "token");
+                    smtpClient.Authenticate("mailadresi", "token");
                     smtpClient.Send(mimeMessage);
                     smtpClient.Disconnect(true);
 

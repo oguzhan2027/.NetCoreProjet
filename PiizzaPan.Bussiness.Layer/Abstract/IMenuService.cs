@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace PiizzaPan.Bussiness.Layer.Abstract
 {
-    public interface ITestimonialService : IGenericService<Testimonial>
+    public interface IMenuService : IGenericService<Menu>
     {
+        Menu TGetByID(int id);
     }
 }

@@ -27,8 +27,13 @@ Author URL: http://w3layouts.com
     <!--/testimonials-->
     @await Component.InvokeAsync("_TestimonialPartial")
     <!--//testimonials-->
+    <!--/menu-->
+    @await Component.InvokeAsync("_MenuPartial")
+    <!--//mmenu-->
+    
     <!-- footers 20 -->
     @await Component.InvokeAsync("_FooterPartial")
+    
     <!-- move top -->
     <button onclick="topFunction()" id="movetop" title="Go to top">
         &#10548;
@@ -103,7 +108,7 @@ Author URL: http://w3layouts.com
     </script>
 
     <!-- testimonials owlcarousel -->
-    <script src="assets/js/owl.carousel.js"></script>
+    <script src="~/pizzapan-starter/assets/js/owl.carousel.js"></script>
     <script>
         $(document).ready(function () {
             $('.owl-two').owlCarousel({

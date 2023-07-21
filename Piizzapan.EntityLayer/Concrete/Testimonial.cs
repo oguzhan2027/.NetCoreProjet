@@ -15,7 +15,8 @@ namespace Piizzapan.EntityLayer.Concrete
         public string CustomerTitle { get; set; }
         public string Comment  { get; set; }
         public string ImageUrl { get; set; }
-        public Category Category { get; set; }
+        
+        //public Category Category { get; set; }
 
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PiizzaPan.DataAccessLayer.Migrations
 {
-    public partial class mig_Data : Migration
+    public partial class mig_menu : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -99,6 +99,21 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Menus",
+                columns: table => new
+                {
+                    MenuID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MenuName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MenuPrice = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MenuDescription = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Menus", x => x.MenuID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "OurTeams",
                 columns: table => new
                 {
@@ -128,6 +143,22 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ProductImages", x => x.ProductImageId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Testimonials",
+                columns: table => new
+                {
+                    TestimonialID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CustomerTitle = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Testimonials", x => x.TestimonialID);
                 });
 
             migrationBuilder.CreateTable(
@@ -259,29 +290,6 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Testimonials",
-                columns: table => new
-                {
-                    TestimonialID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CustomerTitle = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CategoryID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Testimonials", x => x.TestimonialID);
-                    table.ForeignKey(
-                        name: "FK_Testimonials_Categories_CategoryID",
-                        column: x => x.CategoryID,
-                        principalTable: "Categories",
-                        principalColumn: "CategoryID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -325,11 +333,6 @@ namespace PiizzaPan.DataAccessLayer.Migrations
                 name: "IX_Products_CategoryID",
                 table: "Products",
                 column: "CategoryID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Testimonials_CategoryID",
-                table: "Testimonials",
-                column: "CategoryID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -354,6 +357,9 @@ namespace PiizzaPan.DataAccessLayer.Migrations
 
             migrationBuilder.DropTable(
                 name: "Discounts");
+
+            migrationBuilder.DropTable(
+                name: "Menus");
 
             migrationBuilder.DropTable(
                 name: "OurTeams");

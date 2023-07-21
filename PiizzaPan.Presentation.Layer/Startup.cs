@@ -56,8 +56,11 @@ namespace PiizzaPan.Presentation.Layer
             services.AddScoped<IOurTeamService, OurTeamManager>();
             services.AddScoped<IOurTeamDal, EfOurTeamDal>();
 
+			services.AddScoped<IMenuService, MenuManager>();
+			services.AddScoped<IMenuDal, EfMenuDal>();
 
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
+
+			services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
             services.AddControllersWithViews();
 
             services.AddControllersWithViews();

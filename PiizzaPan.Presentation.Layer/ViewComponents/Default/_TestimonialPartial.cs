@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PiizzaPan.Bussiness.Layer.Abstract;
 
-namespace PiizzaPan.Presentation.Layer.ViewComponents.Default
+namespace Pizzapan.PresentationLayer.ViewComponents.Default
 {
     public class _TestimonialPartial : ViewComponent
     {

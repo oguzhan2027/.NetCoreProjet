@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PiizzaPan.Bussiness.Layer.Abstract
+namespace PiizzaPan.DataAccessLayer.Abstract
 {
-    public interface ITestimonialService : IGenericService<Testimonial>
+    public interface IMenuDal : IGenericDal<Menu>
     {
     }
 }
