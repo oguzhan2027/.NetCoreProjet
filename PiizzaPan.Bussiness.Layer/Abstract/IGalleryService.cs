@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PiizzaPan.Bussiness.Layer.Abstract
 {
-    internal interface IGalleryService
+    internal interface IGalleryService : IGenericService<Gallery>
     {
     }
 }

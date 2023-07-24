@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PiizzaPan.Bussiness.Layer.Abstract
+namespace PiizzaPan.DataAccessLayer.Abstract
 {
-    internal interface ISocialMadiaService : IGenericService<SocialMedia>
+    internal interface IContactUsDal
     {
     }
 }

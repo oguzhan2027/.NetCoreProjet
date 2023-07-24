@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PiizzaPan.Bussiness.Layer.Abstract
 {
-    internal interface IContactUsService
+    internal interface IContactUsService : IGenericService<ContactUs>
     {
     }
 }
