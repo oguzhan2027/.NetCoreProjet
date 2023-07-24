@@ -8,6 +8,15 @@ namespace PiizzaPan.Presentation.Layer.Controllers
         {
             return View();
         }
-       
+        public IActionResult Menu()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
     }
 }

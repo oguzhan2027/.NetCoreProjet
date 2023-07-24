@@ -24,7 +24,7 @@ namespace PiizzaPan.DataAccessLayer.Concrete
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<OurTeam> OurTeams { get; set; }
-        public DbSet<Menu> Menus { get; set; }
+        
         public DbSet<ContactUs> ContactUss { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Gallery> Galleries { get; set; }

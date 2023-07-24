@@ -1,9 +1,6 @@
-﻿
-@{
-    ViewData["Title"] = "_AdminLayout";
+﻿﻿@{
+    Layout = null;
 }
-
-
 
 <!doctype html>
 <html lang="en">
@@ -15,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/sidebar-09/css/style.css">
+    <link rel="stylesheet" href="~/sidebar-09/css/style.css">
 </head>
 <body>
 
@@ -36,37 +33,31 @@
                     <a href="#"><span class="fa fa-home mr-3"></span> Dashboard</a>
                 </li>
                 <li>
-                    <a href="/Category/Index"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Kategoriler</a>
+                    <a href="/Category/Index"><span class="fa fa-home mr-3"></span> Kategoriler</a>
                 </li>
                 <li>
-                    <a href="/Discount/DiscountCodeList"><span class="fa fa-gift mr-3"></span> İndirim kodları</a>
+                    <a href="/Product/Index"><span class="fa fa-gift mr-3"></span> Ürünler</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-trophy mr-3"></span> Müşteriler</a>
+                    <a href="/Discount/DiscountCodeList"><span class="fa fa-trophy mr-3"></span> İndirim Kodları</a>
                 </li>
                 <li>
-                    <a href="/Product/Index"><span class="fa fa-cog mr-3"></span> Ürünler</a>
+                    <a href="/ContactUs/Index"><span class="fa fa-trophy mr-3"></span> Hakkımda</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-support mr-3"></span> Refereanslar</a>
+                    <a href="/Testimonial/Index"><span class="fa fa-trophy mr-3"></span> Referanslar</a>
                 </li>
                 <li>
-                    <a href="/Contact/Index"><span class="fa fa-sign-out mr-3"></span> Mesajlar</a>
+                    <a href="/Gallery/Index"><span class="fa fa-trophy mr-3"></span> Galeri</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-sign-out mr-3"></span> Galeri</a>
+                    <a href="/Contact/Index"><span class="fa fa-cog mr-3"></span> Mesajlar</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-sign-out mr-3"></span> Personeller</a>
+                    <a href="/Settings/Index"><span class="fa fa-support mr-3"></span> Ayarlar</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-sign-out mr-3"></span> İstatistikler</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa fa-sign-out mr-3"></span> Ayarlar</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa fa-sign-out mr-3"></span> Çıkış Yap</a>
+                    <a asp-controller="Settings" asp-action="Logout"><span class="fa fa-sign-out mr-3"></span> Çıkış</a>
                 </li>
             </ul>
 
@@ -74,9 +65,8 @@
 
         <!-- Page Content  -->
         <div id="content" class="p-4 p-md-5 pt-5">
-            <h2 class="mb-4"></h2>
             @RenderBody()
-             </div>
+        </div>
     </div>
 
     <script src="~/sidebar-09/js/jquery.min.js"></script>

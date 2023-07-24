@@ -8,10 +8,5 @@ namespace Piizzapan.EntityLayer.Concrete
 {
     public class Menu
     {
-        public int MenuID { get; set; }
-        public string MenuName { get; set; }
-        public string MenuPrice { get; set; }
-        public string MenuDescription { get; set; }
-
     }
 }
