@@ -1,4 +1,6 @@
-﻿using PiizzaPan.Bussiness.Layer.Abstract;
+﻿using Piizzapan.EntityLayer.Concrete;
+using PiizzaPan.Bussiness.Layer.Abstract;
+using PiizzaPan.DataAccessLayer.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +35,7 @@ namespace PiizzaPan.Bussiness.Layer.Concrete
 
         public void TInsert(Gallery t)
         {
-            _galleryDal.Insret(t);
+            _galleryDal.Insert(t);
         }
 
         public void TUpdate(Gallery t)

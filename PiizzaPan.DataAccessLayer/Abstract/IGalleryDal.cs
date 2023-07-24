@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Piizzapan.EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PiizzaPan.DataAccessLayer.Abstract
 {
-    internal interface IGalleryDal
+    public interface IGalleryDal : IGenericDal<Gallery>
     {
     }
 }

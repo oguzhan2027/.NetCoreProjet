@@ -1,4 +1,6 @@
-﻿using PiizzaPan.Bussiness.Layer.Abstract;
+﻿using Piizzapan.EntityLayer.Concrete;
+using PiizzaPan.Bussiness.Layer.Abstract;
+using PiizzaPan.DataAccessLayer.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,11 +31,12 @@ namespace PiizzaPan.Bussiness.Layer.Concrete
         public List<SocialMedia> TGetList()
         {
             return _socialMedia.GetList();
+
         }
 
         public void TInsert(SocialMedia t)
         {
-            _socialMedia.Insret(t);
+            _socialMedia.Insert(t);
         }
 
         public void TUpdate(SocialMedia t)

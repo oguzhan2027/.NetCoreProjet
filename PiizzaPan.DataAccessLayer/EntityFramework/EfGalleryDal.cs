@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Piizzapan.EntityLayer.Concrete;
+using PiizzaPan.DataAccessLayer.Abstract;
+using PiizzaPan.DataAccessLayer.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PiizzaPan.DataAccessLayer.EntityFramework
 {
-    internal class EfGalleryDal
+    public class EfGalleryDal : GenericRepository<Gallery>, IGalleryDal
     {
     }
 }
